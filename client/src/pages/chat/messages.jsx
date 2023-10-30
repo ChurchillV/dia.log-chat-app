@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 
-const Messages = ({ socket }) => {
+const Messages = ({ socket, username }) => {
     const [messagesReceived, setMessagesReceived] = useState([]);
     
     const messagesColumnRef = useRef(null);
@@ -60,7 +60,7 @@ const Messages = ({ socket }) => {
         {messagesReceived.map((msg, i) => (
             <div className={styles.message} key={i}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span className={styles.msgMeta}>{msg.username}</span>
+                    <span className={styles.msgMeta}>{(msg.username == username) ? "You" : msg.username}</span>
                     <span className={styles.msgMeta}>
                         {formatDateFromTimestamp(msg.__createdtime__)}
                     </span>
