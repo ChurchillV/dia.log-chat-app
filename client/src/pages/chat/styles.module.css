@@ -9,6 +9,8 @@
   /* Room and users component */
   .roomAndUsersColumn {
     border-right: 1px solid #dfdfdf;
+    margin-left: auto;
+    padding: 10%;
   }
   .roomTitle {
     margin-bottom: 60px;
@@ -43,12 +45,26 @@
     max-width: 600px;
     padding: 12px;
   }
+  .userMessage {
+    background: rgb(0, 93, 119);
+    border-radius: 6px;
+    margin-bottom: 24px;
+    max-width: 600px;
+    padding: 12px;
+  }
   .msgMeta {
     color: rgb(0, 93, 119);
     font-size: 0.75rem;
   }
+  .userMsgMeta {
+    color: #f5f5f5;
+    font-size: 0.75rem;
+  }
   .msgText {
     color: #2a4a63;
+  }
+  .userMsgText {
+    color: #f5f5f5;
   }
   
   /* Message input and button */

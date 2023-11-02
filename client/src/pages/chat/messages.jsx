@@ -58,14 +58,16 @@ const Messages = ({ socket, username }) => {
     return (
     <div className={styles.messagesColumn} ref={messagesColumnRef}>
         {messagesReceived.map((msg, i) => (
-            <div className={styles.message} key={i}>
+            <div className={(msg.username == username) ? styles.userMessage : styles.message} key={i}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span className={styles.msgMeta}>{(msg.username == username) ? "You" : msg.username}</span>
-                    <span className={styles.msgMeta}>
+                    <span className={(msg.username == username) ? styles.userMsgMeta : styles.msgMeta}>
+                        {(msg.username == username) ? "You" : msg.username}
+                    </span>
+                    <span className={(msg.username == username) ? styles.userMsgMeta : styles.msgMeta}>
                         {formatDateFromTimestamp(msg.__createdtime__)}
                     </span>
                 </div>
-                <p className={styles.msgText}>{msg.message}</p>
+                <p className={(msg.username == username) ? styles.userMsgText : styles.msgText}>{msg.message}</p>
                 <br />
             </div>
         ))}
